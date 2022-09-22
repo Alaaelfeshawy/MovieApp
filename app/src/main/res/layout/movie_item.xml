@@ -45,7 +45,24 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/textColor"
-                tools:text="TITLE"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                tools:text="tittle"
+                />
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColor"
+                android:maxLines="3"
+                android:ellipsize="end"
+                tools:text="overview"
                 />
 
             <TextView
@@ -54,9 +71,11 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/image"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/overview"
+                android:layout_marginStart="8dp"
                 android:layout_marginBottom="16dp"
-                android:textColor="@color/textColor"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/grey"
                 tools:text="15 minutes"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,6 @@
 package com.example.data.di
 
-import com.example.data.repository.DBRepository
-import com.example.data.repository.HomeRepository
-import com.example.data.repository.IHomeRepository
-import com.example.data.repository.IRoomDBRepository
+import com.example.data.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +14,12 @@ class RepositoriesModule {
     @Singleton
     fun providerHomeRepository(homeRepository: HomeRepository): IHomeRepository {
         return homeRepository
+    }
+
+    @Provides
+    @Singleton
+    fun providerMovieDetailsRepository(movieDetailsRepository: MovieDetailsRepository): IMovieDetailsRepository {
+        return movieDetailsRepository
     }
     @Provides
     @Singleton

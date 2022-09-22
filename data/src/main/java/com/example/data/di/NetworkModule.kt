@@ -2,6 +2,7 @@ package com.example.data.di
 
 import com.example.data.BuildConfig
 import com.example.data.source.remote.HomeApi
+import com.example.data.source.remote.MovieDetailsApi
 import com.example.data.util.AppConstants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -71,8 +72,14 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideHomeApi( retrofit: Retrofit): HomeApi {
+    fun provideHomeApi(retrofit: Retrofit): HomeApi {
         return retrofit.create(HomeApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieDetailsApi(retrofit: Retrofit): MovieDetailsApi {
+        return retrofit.create(MovieDetailsApi::class.java)
     }
 
 }

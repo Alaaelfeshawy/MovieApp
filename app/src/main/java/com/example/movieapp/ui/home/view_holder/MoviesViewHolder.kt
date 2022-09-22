@@ -18,6 +18,7 @@ class MoviesViewHolder(private val itemBinding: ViewBinding,
             .into(binding.image)
         binding.title.text = model.title
         binding.date.text= model.releaseDate
+        binding.overview.text = model.overview
 
     }
 

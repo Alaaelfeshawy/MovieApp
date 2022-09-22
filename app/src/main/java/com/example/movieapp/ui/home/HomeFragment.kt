@@ -6,6 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentHomeBinding
@@ -31,6 +32,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() , SwipeRefreshLayout.On
 
     private val moviesAdapter: BaseAdapter<MovieModel, MovieItemBinding> by lazy {
         BaseAdapter(R.layout.movie_item, {
+            it.id?.let {
+                movieId->
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(movieId))
+            }
         }) {
             MoviesViewHolder(it)
         }
