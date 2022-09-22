@@ -2,23 +2,27 @@ package com.example.movieapp.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.*
 import com.example.data.model.home.TopRatedMoviesResponse
+import com.example.data.use_case.home.GetMoviesListUseCase
 import com.example.data.use_case.home.GetTopRatedMoviesUseCase
 import com.example.data.util.ErrorStatus
 import com.example.data.util.ResponseResult
 import com.example.movieapp.model.home.response.TopRatedMoviesResponseModel
-import com.example.movieapp.model.home.response.TopRatedMoviesResponseModelMapper
+import com.example.movieapp.model.room.entity.MovieModel
+import com.example.movieapp.model.room.entity.MovieModelMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel  @Inject constructor(
     private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
+    private val getMoviesListUseCase: GetMoviesListUseCase,
     ) :  ViewModel(){
     val state = MutableStateFlow<HomeState<TopRatedMoviesResponseModel>>(HomeState.Idle)
+    val listState = MutableStateFlow<List<MovieModel>>(emptyList())
 
     fun getTopRatedMovies() {
         viewModelScope.launch {
@@ -31,10 +35,18 @@ class HomeViewModel  @Inject constructor(
                         state.emit(HomeState.Error(it.message ?: "UnKnown Message"))
                     }
                     is ResponseResult.Success<TopRatedMoviesResponse> -> {
-                        state.emit(HomeState.Success(TopRatedMoviesResponseModelMapper.mapper.fromDomain(it.data)))
                     }
                 }
 
+            }
+        }
+        getMovieList()
+    }
+
+    private fun getMovieList(){
+        viewModelScope.launch {
+            getMoviesListUseCase.getMoviesList().collect{
+                listState.emit(MovieModelMapper.mapper.fromDomainList(it))
             }
         }
     }
