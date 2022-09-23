@@ -1,8 +1,6 @@
 package com.example.movieapp.model.home
 
-import com.example.data.model.home.Movie
-import com.example.data.model.home.TopRatedMoviesResponse
-import com.example.movieapp.model.home.response.TopRatedMoviesResponseModel
+import com.example.data.entity.home.Movie
 import org.mapstruct.Mapper
 import org.mapstruct.factory.Mappers
 

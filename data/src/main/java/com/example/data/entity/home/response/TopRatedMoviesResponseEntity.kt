@@ -1,9 +1,8 @@
 package com.example.data.entity.home.response
 
 import com.example.data.entity.home.MovieEntity
-import com.example.data.model.home.TopRatedMoviesResponse
+import com.example.data.entity.home.TopRatedMoviesResponse
 import org.mapstruct.Mapper
-import org.mapstruct.ReportingPolicy
 import org.mapstruct.factory.Mappers
 
 data class TopRatedMoviesResponseEntity (

@@ -1,10 +1,7 @@
 package com.example.data.repository
 
 import com.example.data.entity.home.MovieEntityMapper
-import com.example.data.entity.home.response.TopRatedMoviesResponseEntityMapper
-import com.example.data.model.home.Movie
-import com.example.data.model.home.TopRatedMoviesResponse
-import com.example.data.source.remote.HomeApi
+import com.example.data.entity.home.Movie
 import com.example.data.source.remote.MovieDetailsApi
 import com.example.data.util.*
 import kotlinx.coroutines.flow.Flow

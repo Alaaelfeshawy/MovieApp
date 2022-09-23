@@ -36,10 +36,10 @@ abstract class AppDatabase : RoomDatabase() {
         fun jsonToIntList(data: String?): List<Int>? {
             val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory())
                 .build()
-            val strListType: Type = Types.newParameterizedType(
+            val intListType: Type = Types.newParameterizedType(
                 MutableList::class.java, Int::class.javaObjectType
             )
-            val jsonAdapter = moshi.adapter<List<Int>>(strListType)
+            val jsonAdapter = moshi.adapter<List<Int>>(intListType)
             var intList: List<Int>? = null
             try {
                 intList = jsonAdapter.fromJson(data!!)
