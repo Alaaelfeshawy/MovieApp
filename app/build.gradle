@@ -64,6 +64,7 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
     // navigation
     def nav_version = "2.5.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -135,4 +136,12 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$pull_refresh_version"
 
     implementation 'ch.acra:acra:4.9.2'
+
+    implementation 'androidx.hilt:hilt-work:1.0.0'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+
+    implementation "androidx.startup:startup-runtime:1.1.1"
+
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
+import com.example.data.util.AppConstants
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentMovieDetailsBinding
 import com.example.movieapp.model.home.MovieModel
@@ -66,7 +67,7 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>() {
         binding.title.text = model.title
         binding.overview.text = model.overview
         Glide.with(requireContext())
-            .load("https://image.tmdb.org/t/p/w600_and_h900_bestv2"+model.posterPath)
+            .load(AppConstants.BASE_IMAGE_URL+model.posterPath)
             .placeholder(R.drawable.placeholder)
             .into(binding.movieImage)
 

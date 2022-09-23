@@ -11,8 +11,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentHomeBinding
 import com.example.movieapp.databinding.MovieItemBinding
-import com.example.movieapp.model.home.MovieModel
 import com.example.movieapp.model.home.response.TopRatedMoviesResponseModel
+import com.example.movieapp.model.room.entity.MovieModel
 import com.example.movieapp.ui.base.BaseAdapter
 import com.example.movieapp.ui.base.BaseFragment
 import com.example.movieapp.ui.home.view_holder.MoviesViewHolder
@@ -70,10 +70,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() , SwipeRefreshLayout.On
                         is HomeViewModel.HomeState.Error -> showError(it.message)
                         is HomeViewModel.HomeState.NoConnection -> handleNetwork(it.isConnected)
                         is HomeViewModel.HomeState.Success<TopRatedMoviesResponseModel> -> {
-                            binding.mainView.visibility= View.VISIBLE
-                            moviesAdapter.setDataList(it.data.results)
                         }
                     }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.listState.collect{
+                    binding.mainView.visibility= View.VISIBLE
+                    binding.noInternetLayout.visibility=View.GONE
+                    moviesAdapter.setDataList(it)
                 }
             }
         }
@@ -96,9 +103,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() , SwipeRefreshLayout.On
     private fun handleNetwork(isConnected:Boolean){
         if(isConnected){
             binding.noInternetLayout.visibility=View.GONE
-        }else{
+        }else if(viewModel.listState.value.isEmpty()){
             binding.noInternetLayout.visibility=View.VISIBLE
             binding.mainView.visibility=View.GONE
+        }else{
+            binding.noInternetLayout.visibility=View.GONE
+            binding.mainView.visibility=View.VISIBLE
         }
     }
 
