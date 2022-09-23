@@ -2,13 +2,9 @@ package com.example.data.source.local.room.entity.home
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 import com.example.data.entity.home.MovieEntity
-import com.example.data.model.room.entity.MovieDB
-import com.example.data.source.local.room.AppDatabase
-import com.squareup.moshi.JsonClass
+import com.example.data.entity.room.entity.MovieDB
 import org.mapstruct.Mapper
-import org.mapstruct.ReportingPolicy
 import org.mapstruct.factory.Mappers
 
 @Entity(tableName = "movies")

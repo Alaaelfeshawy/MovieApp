@@ -1,8 +1,6 @@
 package com.example.data.entity.home
 
-import com.example.data.model.home.Movie
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import org.mapstruct.Mapper
 import org.mapstruct.factory.Mappers
 

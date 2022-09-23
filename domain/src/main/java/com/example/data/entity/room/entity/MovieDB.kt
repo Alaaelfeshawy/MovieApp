@@ -1,4 +1,4 @@
-package com.example.data.model.room.entity
+package com.example.data.entity.room.entity
 
 open class MovieDB {
     var adult: Boolean ? =null

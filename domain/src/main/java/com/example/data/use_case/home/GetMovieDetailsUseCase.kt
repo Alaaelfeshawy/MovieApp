@@ -1,6 +1,6 @@
 package com.example.data.use_case.home
 
-import com.example.data.model.home.Movie
+import com.example.data.entity.home.Movie
 import com.example.data.repository.IMovieDetailsRepository
 import com.example.data.use_case.base.FlowableUseCaseWithParams
 import com.example.data.util.ApiResult

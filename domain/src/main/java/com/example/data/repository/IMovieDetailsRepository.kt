@@ -1,7 +1,6 @@
 package com.example.data.repository
 
-import com.example.data.model.home.Movie
-import com.example.data.model.home.TopRatedMoviesResponse
+import com.example.data.entity.home.Movie
 import com.example.data.util.ApiResult
 import kotlinx.coroutines.flow.Flow
 

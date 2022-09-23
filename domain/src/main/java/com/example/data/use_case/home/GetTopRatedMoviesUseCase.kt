@@ -1,6 +1,6 @@
 package com.example.data.use_case.home
 
-import com.example.data.model.home.TopRatedMoviesResponse
+import com.example.data.entity.home.TopRatedMoviesResponse
 import com.example.data.repository.IHomeRepository
 import com.example.data.use_case.base.FlowableUseCaseWithoutParams
 import com.example.data.util.ApiResult
