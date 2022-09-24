@@ -16,6 +16,7 @@ import com.example.movieapp.model.room.entity.MovieModel
 import com.example.movieapp.ui.base.BaseAdapter
 import com.example.movieapp.ui.base.BaseFragment
 import com.example.movieapp.ui.home.view_holder.MoviesViewHolder
+import com.example.movieapp.ui.util.Util
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -97,7 +98,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() , SwipeRefreshLayout.On
     }
 
     private fun showError(message:String){
-        Toast.makeText(requireContext(),message, Toast.LENGTH_SHORT).show()
+        Util.makeToast(requireContext(), message, Toast.LENGTH_SHORT)
     }
 
     private fun handleNetwork(isConnected:Boolean){

@@ -11,10 +11,3 @@ abstract class BaseViewHolder<T : ViewBinding?, M>(binding: ViewBinding) :
     open val binding: T = binding as T
     abstract fun onBind(position: Int, model: M)
 }
-
-abstract class BindingViewHolder<T : ViewDataBinding>(itemView: View) :
-    RecyclerView.ViewHolder(itemView) {
-    protected val binding: T? = DataBindingUtil.bind(itemView)
-        get() = field!!
-
-}
