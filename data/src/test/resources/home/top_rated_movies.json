@@ -1,0 +1,20 @@
+{
+
+  "results": [
+    {
+      "adult": true,
+      "backdrop_path":"backdropPath",
+      "genre_ids":[1],
+      "id" : 1,
+      "originalTitle":"originalTitle",
+      "overview" : "overview",
+      "popularity":"popularity",
+      "poster_path": "posterPath",
+      "release_date": "releaseDate",
+      "title":"title",
+      "video":true,
+      "vote_average": 1,
+      "vote_count": 1
+    }
+  ]
+}

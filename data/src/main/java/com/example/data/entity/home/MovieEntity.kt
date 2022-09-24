@@ -1,7 +1,8 @@
 package com.example.data.entity.home
 
 import com.squareup.moshi.Json
-
+import org.mapstruct.Mapper
+import org.mapstruct.factory.Mappers
 
 data class MovieEntity (
     var adult: Boolean ? =null,
@@ -25,4 +26,16 @@ data class MovieEntity (
     @Json(name="vote_count")
     var voteCount : Int ?=null
 )
+
+@Mapper//(unmappedTargetPolicy = ReportingPolicy.ERROR, uses = [MovieEntity::class])
+interface MovieEntityMapper {
+    fun fromDomain(domain: Movie?): MovieEntity
+    fun fromDomainList(domain: List<Movie>?): List<MovieEntity>
+    fun toDomain(data: MovieEntity?): Movie
+
+    companion object {
+        var mapper: MovieEntityMapper =
+            Mappers.getMapper(MovieEntityMapper::class.java)
+    }
+}
 

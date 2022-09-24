@@ -26,7 +26,7 @@ class HomeActivity : BaseActivity<ActivityMainBinding>(){
         setTitle(R.string.app_name)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment?
         navController = navHostFragment?.navController
-    }
 
+    }
 
 }

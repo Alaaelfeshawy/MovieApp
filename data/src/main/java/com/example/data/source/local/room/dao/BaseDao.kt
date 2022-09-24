@@ -1,14 +1,14 @@
 package com.example.data.source.local.room.dao
 
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 interface BaseDao<T> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item: T?): Long?
+    fun insert(data: List<T>?): LongArray?
 
-    @Delete
-    suspend fun deleteMovie(item:T?) : Int
+    @Query("DELETE FROM movies")
+    fun deleteAll()
 }

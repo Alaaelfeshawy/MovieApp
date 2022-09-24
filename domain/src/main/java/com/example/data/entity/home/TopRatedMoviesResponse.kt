@@ -1,4 +1,4 @@
-package com.example.data.model.home
+package com.example.data.entity.home
 
 
 data class TopRatedMoviesResponse (
