@@ -2,7 +2,7 @@ package com.example.movieapp.ui.movie_details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.home.Movie
+import com.example.data.entity.home.Movie
 import com.example.data.use_case.home.GetMovieDetailsUseCase
 import com.example.data.util.ErrorStatus
 import com.example.data.util.ResponseResult

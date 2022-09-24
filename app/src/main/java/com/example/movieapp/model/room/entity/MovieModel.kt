@@ -1,6 +1,6 @@
 package com.example.movieapp.model.room.entity
 
-import com.example.data.model.room.entity.MovieDB
+import com.example.data.entity.room.entity.MovieDB
 import org.mapstruct.Mapper
 import org.mapstruct.factory.Mappers
 

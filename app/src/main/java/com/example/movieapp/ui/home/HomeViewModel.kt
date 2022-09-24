@@ -2,7 +2,7 @@ package com.example.movieapp.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.home.TopRatedMoviesResponse
+import com.example.data.entity.home.TopRatedMoviesResponse
 import com.example.data.use_case.home.GetMoviesListUseCase
 import com.example.data.use_case.home.GetTopRatedMoviesUseCase
 import com.example.data.util.ErrorStatus
@@ -12,7 +12,6 @@ import com.example.movieapp.model.room.entity.MovieModel
 import com.example.movieapp.model.room.entity.MovieModelMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
